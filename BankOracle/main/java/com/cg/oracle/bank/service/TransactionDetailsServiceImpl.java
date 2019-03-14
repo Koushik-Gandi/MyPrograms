@@ -1,26 +1,28 @@
 package com.cg.oracle.bank.service;
 
+import java.util.Scanner;
+
 import com.cg.oracle.bank.dao.*;
 
 public class TransactionDetailsServiceImpl implements TransactionDetailsService {
-
 	TransactionDetailsDao transaction = new TransactionDetailsDaoImpl();
+	static Scanner sc = new Scanner(System.in);
 
-	public int deposit(double amount) {
+	public double deposit(long accountNo, double amount) throws Exception {
 
-		return transaction.deposit(amount);
+		return transaction.deposit(accountNo, amount);
 	}
 
-	public int debit(double amount) {
-		return transaction.debit(amount);
+	public double debit(long accountNo, double amount) throws Exception {
+		return transaction.debit(accountNo, amount);
 	}
 
-	public int checkBalance(double amount) {
-		return transaction.checkBalance(amount);
+	public double fundTransfer(long accountNo, long toAccount, double amount2) throws Exception {
+		return transaction.fundTransfer(accountNo, toAccount, amount2);
 	}
 
-	public int fundTransfer(double amount) {
-		return transaction.fundTransfer(amount);
+	public double checkBalance(long accountNo) throws Exception {
+		return transaction.checkBalance(accountNo);
 	}
 
 }

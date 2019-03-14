@@ -2,12 +2,11 @@ package com.cg.oracle.bank.service;
 
 public interface TransactionDetailsService {
 
-	int deposit(double amount);
+	double deposit(long accountNo,double amount) throws Exception;
 
-	int debit(double amount);
+	double debit(long accountNo,double amount) throws Exception;
 
-	int checkBalance(double amount);
+	double fundTransfer(long accountNo,long toAccount,double amount) throws Exception;
 
-	int fundTransfer(double amount);
-
+	double checkBalance(long accountNo) throws Exception;
 }
